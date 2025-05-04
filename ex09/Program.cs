@@ -1,7 +1,4 @@
 ﻿using System;
-
-namespace atividade_avaliativa_1{
-
     class Program{
         static void Main(string[] args){
 
@@ -18,7 +15,12 @@ namespace atividade_avaliativa_1{
                 tentativas ++;
                 Console.Write("Tente acertar o valor:");
 
-                palpite = int.Parse(Console.ReadLine());
+                bool valido = int.TryParse(Console.ReadLine(), out palpite);
+
+                while(!valido){
+                    Console.WriteLine("Valor invalido.Digite novamente:");
+                    valido = int.TryParse(Console.ReadLine(), out palpite);
+                }
 
                 while(palpite < 1 || palpite > 100){
                     Console.WriteLine("Valor inválido. As tentativas devem ser entre 1 e 100:");
@@ -41,4 +43,3 @@ namespace atividade_avaliativa_1{
             }
         }
     }
-}

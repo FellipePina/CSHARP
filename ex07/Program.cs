@@ -1,7 +1,4 @@
 ﻿using System;
-
-namespace atividade_avaliativa_1{
-
     class Program{
 
         static void Main(string[]args){
@@ -12,7 +9,12 @@ namespace atividade_avaliativa_1{
             int somaPares = 0;
             for(int i = 0; i < 10; i++){
                 Console.Write("Valor " + (i+1) + ":");
-                valores[i] = int.Parse(Console.ReadLine());
+                bool valido = int.TryParse(Console.ReadLine(), out valores[i]);
+
+                while(!valido){
+                    Console.WriteLine("Valor inválido. Digite novamente:");
+                    valido = int.TryParse(Console.ReadLine(), out valores[i]);
+                }
 
                 if(valores[i] % 2 == 0){
                     somaPares += valores[i];
@@ -22,4 +24,3 @@ namespace atividade_avaliativa_1{
             Console.WriteLine("Soma dos valores pares:" + somaPares);
         }
     }
-}

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Globalization;
-
-namespace atividade_avaliativa_1
-{
     class Program
     {
         static readonly CultureInfo formato = CultureInfo.InvariantCulture;
@@ -16,12 +13,12 @@ namespace atividade_avaliativa_1
                 Console.WriteLine("Escolha uma das opções abaixo:");
                 Console.WriteLine("1 - Celsius para Fahrenheit\n2 - Fahrenheit para Celsius\n3 - Sair");
                 Console.Write("Escolha:");
-                Escolha = int.Parse(Console.ReadLine());
+                bool valido = int.TryParse(Console.ReadLine(), out Escolha);
 
-                while (Escolha < 1 || Escolha > 3)
+                while (!valido || Escolha < 1 || Escolha > 3)
                 {
                     Console.Write("Valor inválido.Tente novamente:");
-                    Escolha = int.Parse(Console.ReadLine());
+                    valido = int.TryParse(Console.ReadLine(), out Escolha);
                 }
 
                 switch (Escolha)
@@ -60,4 +57,3 @@ namespace atividade_avaliativa_1
             Console.WriteLine("Valor convertido para Celsius: " + Celsius.ToString("F2",formato));
         }
     }
-}

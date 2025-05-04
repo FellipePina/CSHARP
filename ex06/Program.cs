@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Globalization;
-
-namespace atividade_avaliativa_1
-{
-
     class Program
     {
         static void Main(string[] args)
@@ -18,10 +14,22 @@ namespace atividade_avaliativa_1
                 string nome = Console.ReadLine();
 
                 Console.Write("Informe o preco do produto:");
-                float preco = float.Parse(Console.ReadLine(),CultureInfo.InvariantCulture);
+                float preco = 0;
+                bool valido = float.TryParse(Console.ReadLine(),CultureInfo.InvariantCulture, out preco);
+
+                if(!valido){
+                    Console.WriteLine("Valor do preco inválido.Tente novamente.");
+                    valido = float.TryParse(Console.ReadLine(),CultureInfo.InvariantCulture, out preco);
+                }
 
                 Console.Write("Informe a quantidade do produto:");
-                int quantidade = int.Parse(Console.ReadLine());
+                int quantidade = 0;
+                valido = int.TryParse(Console.ReadLine(),out quantidade);
+
+                if(!valido){
+                    Console.WriteLine("Valor da quantidade inválido.Tente novamente.");
+                    valido = int.TryParse(Console.ReadLine(),CultureInfo.InvariantCulture, out quantidade);
+                }
 
                 Produto p = new Produto(nome,preco,quantidade);
                 produtos.Add(p);
@@ -30,10 +38,8 @@ namespace atividade_avaliativa_1
             Produto.ExibirDetalhes(produtos);
         }
     }
-
     class Produto
     {
-
         public string nome { get; set; }
         public float preco { get; set; }
         public int quantidade { get; set; }
@@ -58,4 +64,4 @@ namespace atividade_avaliativa_1
             }
         }
     }
-}
+

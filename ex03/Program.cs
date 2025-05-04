@@ -1,15 +1,16 @@
 ﻿using System;
-
-namespace atividade_avaliativa_1
-{
-
     class Program
     {
         static void Main(string[] args)
         {
-
             Console.Write("Informe um numero para saber seu fatorial:");
-            int num = int.Parse(Console.ReadLine());
+            int num = 0;
+            bool valorValido = int.TryParse(Console.ReadLine(), out num);
+
+            if(!valorValido){
+                Console.WriteLine("Valor inválido!");
+                return;
+            }
 
             if (num < 0)
             {
@@ -19,7 +20,7 @@ namespace atividade_avaliativa_1
 
             if (num == 0)
             {
-                Console.WriteLine("Fatorial de !0: 1");
+                Console.WriteLine("Fatorial de 0: 1");
                 Environment.Exit(0);
             }
 
@@ -31,7 +32,6 @@ namespace atividade_avaliativa_1
                 fatorial *= i;
             }
 
-            Console.WriteLine("Fatorial de !" + num + ":" + fatorial);
+            Console.WriteLine("Fatorial de " + num + ":" + fatorial);
         }
     }
-}

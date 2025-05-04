@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Globalization;
-
-namespace atividade_avaliativa_1{
-
     class Program{
         static void Main(string[] args){
 
@@ -33,4 +30,3 @@ namespace atividade_avaliativa_1{
             }
         }
     }
-}

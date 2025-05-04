@@ -1,12 +1,16 @@
 ﻿using System;
-
-namespace atividade_avaliativa_1{
-
     class Program{
         static void Main(string[] args){
 
             Console.Write("Informe um número para ver sua tabuada de 1 a 10:");
-            int num = int.Parse(Console.ReadLine());
+            int num = 0;
+            bool valido = int.TryParse(Console.ReadLine(), out num);
+
+            if(!valido){
+                Console.WriteLine("Valor inválido");
+                return;
+            }
+
             Console.WriteLine();
             Console.WriteLine("Tabuada do numero [" + num + "]");
 
@@ -15,4 +19,3 @@ namespace atividade_avaliativa_1{
             }
         }
     }
-}

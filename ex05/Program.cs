@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using System.Text;
-
-namespace atividade_avaliativa_1
-{
     class Program
     {
         static void Main(string[] args)
@@ -30,7 +27,7 @@ namespace atividade_avaliativa_1
             }
             else
             {
-                Console.WriteLine("não é palíndromo.");
+                Console.WriteLine("Não é palíndromo.");
             }
         }
         static string TratamentoTexto(string texto)
@@ -55,4 +52,4 @@ namespace atividade_avaliativa_1
             return sb.ToString().Normalize(NormalizationForm.FormC);
         }
     }
-}
+

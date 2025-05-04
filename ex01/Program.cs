@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-
-namespace atividade_avaliativa_1
-{
-
     class Program
     {
 
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Digite sua senha:");
+            Console.Write("Digite sua senha:");
             string Senha = Console.ReadLine();
 
             bool TamanhoSenha = Senha.Length >= 8;
             bool LetraMaiuscula = Regex.IsMatch(Senha, @"[A-Z]");
             bool ContemNumero = Regex.IsMatch(Senha, @"[0-9]");
-            bool CaracterEspecial = Regex.IsMatch(Senha, @"[!@#$%^&*]");
+            //bool CaracterEspecial = Regex.IsMatch(Senha, @"[!@#$%^&*]");
+            bool CaracterEspecial = Regex.IsMatch(Senha,@"[!@#$%^&*()_+\-=\?/\\]");
 
             if (TamanhoSenha && LetraMaiuscula && ContemNumero && CaracterEspecial)
             {
@@ -45,5 +42,4 @@ namespace atividade_avaliativa_1
             }
         }
     }
-}
 
